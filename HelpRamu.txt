@@ -1,0 +1,87 @@
+package lec3;
+
+import java.util.Scanner;
+
+public class HelpRamu {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		Scanner scn = new Scanner(System.in);
+		
+		
+		int t = scn.nextInt();
+		
+		while(t-- >0)
+		{	
+		int c1 = scn.nextInt();
+		int c2 = scn.nextInt();
+		int c3 = scn.nextInt();
+		int c4 = scn.nextInt();
+		
+		//Size of array 1 for rikshaw
+		int n = scn.nextInt();
+		//Size of array 1 for cab
+		int m = scn.nextInt();
+		
+		int[] arr1 = new int[n];
+		
+		int[] arr2 = new int [m];
+//		Array of rikshaw
+		for(int i = 0; i<arr1.length; i++)
+		 {
+			arr1[i] = scn.nextInt();
+		 }
+		// Array of Cab
+		for(int i = 0; i<arr2.length; i++)
+		 {
+			arr2[i] = scn.nextInt();
+		 }
+		
+		int ans = 0;
+		
+		for(int i = 0; i<arr1.length; i++)
+		{
+			ans += Math.min(arr1[i], c2);
+		}
+		ans = Math.min(c3, ans);
+		
+		int res = 0;
+		
+		for(int i = 0; i<arr2.length; i++)
+		{
+			res += Math.min(arr2[i]*c1, c2);
+		}
+		res = Math.min(res, c3);
+		ans = res + ans;
+		ans = Math.min(ans, c4);
+		System.out.println(ans);
+		
+		}
+	}
+}
+		
+//		int c1 = 1, c2 = 3, c3 = 7, c4 = 19;
+//		int arr[] = {2,5};
+//		int ans = 0;
+//		for(int i = 0; i<arr.length; i++)
+//		{
+//			ans += Math.min(arr[i], c2);
+//		}
+//		ans = Math.min(c3, ans);
+//		
+//		int res = 0;
+//		
+//		int arr1[] = {4,4,4};
+//		for(int i = 0; i<arr1.length; i++)
+//		{
+//			res += Math.min(arr1[i]*c1, c2);
+//		}
+//		res = Math.min(res, c3);
+//		ans = res + ans;
+//		ans = Math.min(ans, c4);
+//		System.out.println(ans);
+//	}
+//
+//}

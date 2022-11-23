@@ -1,0 +1,68 @@
+package lec3;
+
+import java.util.*;
+
+public class Painterspartion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+		        Scanner scn = new Scanner(System.in);
+
+		     // int tc=scn.nextInt();
+
+		      //while(tc-->0)
+
+		      //{
+		        int k = scn.nextInt();
+		        int n = scn.nextInt();
+		        int arr[] = new int[n];
+		        for (int i = 0; i < arr.length; i++) {
+		            arr[i] = scn.nextInt();
+		        }
+		        // Arrays.sort(arr);
+		        int lo = 0;
+		        int hi = 0;
+		        for (int i = 0; i < arr.length; i++) {
+		            hi += arr[i];
+		        }
+		        int ans = -1;
+		        while (lo <= hi) {
+		            int mid = (lo + hi) / 2;
+		            if (isPossible(arr, k, mid)) {
+		                ans = mid;
+		                hi = mid - 1;
+		            } else {
+		                lo = mid + 1;
+		            }
+		        }
+		System.out.println(ans);
+		    }
+		    //}
+		public static boolean isPossible(int arr[],int k,int mid)
+		{
+		    int psf=1;
+		    int sum=0;
+		    for(int i=0;i<arr.length;i++)
+		    {
+		        if(sum+arr[i]<=mid)
+		        {
+		            sum+=arr[i];
+		        }
+		        else{
+		            psf+=1;
+		            sum=arr[i];
+		            if(psf>k||sum>mid)
+		            {
+		                return false;
+		            }
+		        }
+
+		    }
+		    return true;
+		}
+
+	}
+
+

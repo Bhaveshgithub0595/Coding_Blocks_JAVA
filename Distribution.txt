@@ -1,0 +1,26 @@
+package lec3;
+
+import java.util.Scanner;
+
+public class Distribution {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner scn = new Scanner(System.in);
+		int noi =scn.nextInt(); //no. of items
+		int nop = scn.nextInt(); // no. of positions
+		int ans=0;
+		
+		int arr[] = new int[nop];
+		int sp = scn.nextInt(); // starting position;
+		
+		for(int i = sp; i%arr.length<arr.length && noi>0; i++, noi--)
+		{
+			ans = i%arr.length;
+		}
+		System.out.println(ans);
+
+	}
+
+}

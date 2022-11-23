@@ -1,0 +1,61 @@
+package lec3;
+
+import java.util.Scanner;
+
+public class BookAlocation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int arr[] = {12,34,67,90};
+		int nos = 2;
+		int lo = 0;
+		int res = Integer.MAX_VALUE;
+				
+		 int val = 0;
+		 for(int i = 0; i<arr.length; i++)
+		 {
+			 val = val+arr[i];
+		 }
+		 int hi = val;
+		 while(lo<=hi)
+		 {
+			 int mid = (lo+hi)/2;
+			 if(isPossible(arr, mid, nos))
+			 {
+				 hi = mid-1;
+				 res = Math.min(res, mid);
+			 }
+			 else {
+				 lo = mid+1;
+			 }
+		 }
+		 
+		 System.out.println(res);
+
+	}
+	
+	public static boolean isPossible(int arr[], int mid, int nos)
+	{
+		int ssf = 1; // students
+		int psum = 0; // page sum
+		for(int i  = 0 ; i<arr.length; i++)
+		{
+			if(psum+ arr[i] <= mid) {
+			psum = psum +arr[i];
+			}
+			else
+			{
+				ssf++;
+				psum = arr[i];
+			}
+		}
+		if(ssf>nos)
+		{
+			return false;
+		}
+		return true;
+		
+	}
+
+}
